@@ -11,9 +11,10 @@ public class Entity : MonoBehaviour
     public int facingDirection {get; private set;} = 1;
 
     [Header("Collision detector")]
+    [SerializeField] protected LayerMask groundLayer;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform firstWallCheck;
     [SerializeField] private Transform secondWallCheck;
     public bool isGrounded{get; private set;}
@@ -59,15 +60,23 @@ public class Entity : MonoBehaviour
 
     private void HandleCollisionDetection()
     {
-        isGrounded = Physics2D.Raycast(transform.position,Vector2.down,groundCheckDistance, groundLayer);
-        isWall = Physics2D.Raycast(firstWallCheck.position,Vector2.right * facingDirection,wallCheckDistance, groundLayer) 
-              && Physics2D.Raycast(secondWallCheck.position,Vector2.right * facingDirection,wallCheckDistance, groundLayer);
+        isGrounded = Physics2D.Raycast(groundCheck.position,Vector2.down,groundCheckDistance, groundLayer);
+
+        if(secondWallCheck != null)
+        {
+            isWall = Physics2D.Raycast(firstWallCheck.position,Vector2.right * facingDirection,wallCheckDistance, groundLayer) 
+                && Physics2D.Raycast(secondWallCheck.position,Vector2.right * facingDirection,wallCheckDistance, groundLayer);
+        }
+        else
+            isWall = Physics2D.Raycast(firstWallCheck.position,Vector2.right * facingDirection,wallCheckDistance, groundLayer) ;
+        
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0,-groundCheckDistance));
+        Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0,-groundCheckDistance));
         Gizmos.DrawLine(firstWallCheck.position, firstWallCheck.position + new Vector3(wallCheckDistance * facingDirection,0));
-        Gizmos.DrawLine(secondWallCheck.position, secondWallCheck.position + new Vector3(wallCheckDistance * facingDirection,0));
+        if(secondWallCheck != null)
+            Gizmos.DrawLine(secondWallCheck.position, secondWallCheck.position + new Vector3(wallCheckDistance * facingDirection,0));
     }
 }

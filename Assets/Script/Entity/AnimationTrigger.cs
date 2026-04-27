@@ -2,11 +2,11 @@
 
 public class AnimationTrigger : MonoBehaviour
 {
-    private Player player;
+    private Entity entity;
     void Awake()
     {
-        player = GetComponentInParent<Player>();
+        entity = GetComponentInParent<Entity>();
     }
 
-    private void CurrentStateOver() => player.CallAnimationTrigger();
+    private void CurrentStateOver() => entity.CallAnimationTrigger();
 }

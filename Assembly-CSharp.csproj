@@ -43,7 +43,7 @@
     <UnityVersion>6000.3.10f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\Pelight\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.1\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Pelight\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="W:\Unity\6000.3.10f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="W:\Unity\6000.3.10f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="W:\Unity\6000.3.10f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -52,22 +52,30 @@
     <Compile Include="Assets\Script\Entity\Player\FSM\DashState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\BasicAttackState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\FallState.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\FSM\Enemy_BattleState.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Script\Entity\Entity.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\FSM\Enemy_AttackState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\WallJumpState.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\FSM\Enemy_IdleState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\WallSlideState.cs" />
     <Compile Include="Assets\Script\Entity\EntityState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\MoveState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\GroundedState.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\FSM\Enemy_MoveState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\JumpAttackState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\PlayerState.cs" />
     <Compile Include="Assets\Script\Background\ParallaxLayer.cs" />
     <Compile Include="Assets\Script\Entity\AnimationTrigger.cs" />
     <Compile Include="Assets\Script\Background\ParallaxBackground.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\Skeleton\Enemy_skeleton.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\StateMachine.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\JumpState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\AirState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Script\Entity\Player\Player.cs" />
+    <Compile Include="Assets\Script\Entity\Enemy\FSM\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Script\Entity\Player\FSM\IdleState.cs" />
   </ItemGroup>
   <ItemGroup>
