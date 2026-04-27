@@ -8,5 +8,5 @@ public class AnimationTrigger : MonoBehaviour
         entity = GetComponentInParent<Entity>();
     }
 
-    private void CurrentStateOver() => entity.CallAnimationTrigger();
+    private void CurrentStateOver() => entity.CurrentStateAnimationTrigger();
 }

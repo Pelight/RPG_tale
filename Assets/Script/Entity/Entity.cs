@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour
         stateMachine.UpdateActiveState();
     }
 
-    public void CallAnimationTrigger() => stateMachine.currentState.CallAnimationTrigger();
+    public void CurrentStateAnimationTrigger() => stateMachine.currentState.AnimationTrigger();
     
     public void SetVelocity(float xVelocity, float yVelocity)
     {
@@ -43,7 +43,7 @@ public class Entity : MonoBehaviour
         HandleFlip(xVelocity);
     }
 
-    private void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if(xVelocity > 0 && !facingRight)
             FlipRotation();
